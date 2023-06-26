@@ -157,7 +157,27 @@ local plugins = {
     requires = "MunifTanjim/nui.nvim",
     lazy = false,
     config = function()
-      require('package-info').setup()
+      require("package-info").setup()
+    end,
+  },
+  {
+    "marilari88/neotest-vitest",
+    lazy = false,
+  },
+  {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+    },
+    lazy = false,
+    config = function()
+      require("neotest").setup {
+        adapters = {
+          require "neotest-vitest",
+        },
+      }
     end,
   },
 }
