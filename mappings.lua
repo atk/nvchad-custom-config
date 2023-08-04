@@ -13,6 +13,7 @@ M.general = {
     ["<F5>"] = { "<cmd>lua require 'dap'.continue()<CR>", "Continue after breakpoint" },
     ["<F10>"] = { "<cmd>lua require 'dap'.step_over()<CR>", "Step over" },
     ["<F11>"] = { "<cmd>lua require 'dap'.step_into()<CR>", "Step into" },
+    ["<leader>fs"] = { "<cmd>Telescope symbols<CR>", "find symbol" },
     ["<leader>b"] = {
       function()
         require("dap").toggle_breakpoint()
@@ -37,11 +38,29 @@ M.general = {
       end,
       "Update npm package",
     },
-    ["<leader>ND"] = {
+    ["<leader>NR"] = {
       function()
         require("package-info").delete()
       end,
-      "Delete npm package",
+      "Remove npm package",
+    },
+    ["<leader>NT"] = {
+      function()
+        require("neotest").run.run()
+      end,
+      "Run current test"
+    },
+    ["<leader>ND"] = {
+      function()
+        require("neotest").run.run({ strategy = "dap" })
+      end,
+      "Debug current test"
+    },
+    ["<leader>NS"] = {
+      function()
+        require("neotest").run.stop()
+      end,
+      "Stop current test"
     },
   },
   i = {

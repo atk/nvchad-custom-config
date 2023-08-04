@@ -60,11 +60,6 @@ local plugins = {
   },
 
   {
-    "gpanders/editorconfig.nvim",
-    lazy = false,
-  },
-
-  {
     "mg979/vim-visual-multi",
     lazy = false,
   },
@@ -153,8 +148,12 @@ local plugins = {
     end,
   },
   {
+    "MunifTanjim/nui.nvim",
+    lazy = false,
+  },
+  {
     "vuki656/package-info.nvim",
-    requires = "MunifTanjim/nui.nvim",
+    requires = { "MunifTanjim/nui.nvim" },
     lazy = false,
     config = function()
       require("package-info").setup()
@@ -179,6 +178,16 @@ local plugins = {
         },
       }
     end,
+  },
+  {
+    "edluffy/hologram.nvim",
+    lazy = false,
+    config = function()
+      require("hologram").setup{ auto_display = true }
+    end,
+  },
+  {
+    "nvim-telescope/telescope-symbols.nvim",
   },
 }
 
